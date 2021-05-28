@@ -11,8 +11,10 @@ struct ContentView: View {
     var viewModel: EmojiMemoryGame
     var body: some View {
         HStack {
-            ForEach(viewModel.cards){index in
-                CardView(isFaceUp: true)
+            ForEach(viewModel.cards){card in
+                CardView(card: card).onTapGesture{
+                    viewModel.choose(card: card)
+                }
             }
         }
         .foregroundColor(.orange)
