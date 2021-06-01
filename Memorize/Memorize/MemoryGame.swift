@@ -9,6 +9,7 @@ import Foundation
 
 struct MemoryGame <CardContent>{
     var cards: Array<Card>
+    var isLarge: Bool = false
     
     func choose(card: Card){
         print("card choosen \(card)")
@@ -16,10 +17,20 @@ struct MemoryGame <CardContent>{
     
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent){
         cards = Array<Card>()
+        
+        if numberOfPairsOfCards == 5{
+            isLarge = true
+        }
+        
         for pairIndex in 0..<numberOfPairsOfCards{
-            let content = cardContentFactory(pairIndex)
-            cards.append(Card(content: content, id: pairIndex*2))
-            cards.append(Card(content: content, id: pairIndex*2+1))
+            cards.append(Card(
+                            content: cardContentFactory(
+                                Int.random(in: 0..<numberOfPairsOfCards - 1)),
+                            id: pairIndex*2))
+            cards.append(Card(
+                            content: cardContentFactory(
+                                Int.random(in: 0..<numberOfPairsOfCards - 1)),
+                         id: pairIndex*2+1))
         }
     }
     

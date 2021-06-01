@@ -10,16 +10,30 @@ import SwiftUI
 struct ContentView: View {
     var viewModel: EmojiMemoryGame
     var body: some View {
-        HStack {
-            ForEach(viewModel.cards){card in
-                CardView(card: card).onTapGesture{
-                    viewModel.choose(card: card)
+        if(viewModel.large){
+            HStack {
+                ForEach(viewModel.cards){card in
+                    CardView(card: card).onTapGesture{
+                        viewModel.choose(card: card)
+                    }
                 }
             }
+            .foregroundColor(.orange)
+            .padding()
+            .font(Font.largeTitle)
+        }else{
+            HStack {
+                ForEach(viewModel.cards){card in
+                    CardView(card: card).onTapGesture{
+                        viewModel.choose(card: card)
+                    }
+                }
+            }
+            .foregroundColor(.orange)
+            .padding()
+            .font(Font.title)
         }
-        .foregroundColor(.orange)
-        .padding()
-        .font(Font.largeTitle)
+        
     }
 }
 
