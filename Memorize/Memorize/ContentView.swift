@@ -18,7 +18,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .aspectRatio(0.75, contentMode: .fit)
+            .aspectRatio(0.6, contentMode: .fit)
             .foregroundColor(.orange)
             .padding()
             .font(viewModel.large ? Font.largeTitle : Font.title)
@@ -29,17 +29,15 @@ struct ContentView: View {
 struct CardView: View {
     var card: MemoryGame<String>.Card
     var isFaceUp: Bool = false
+    let shape = RoundedRectangle(cornerRadius: 10.0)
     var body: some View{
         ZStack{
             if card.isFaceUp{
-                RoundedRectangle(cornerRadius: 10.0)
-                    .fill(Color.white)
-                RoundedRectangle(cornerRadius: 10.0)
-                    .stroke(lineWidth: 3.0)
+                shape.fill(Color.white)
+                shape.stroke(lineWidth: 3.0)
                 Text(card.content)
             }else{
-                RoundedRectangle(cornerRadius: 10.0)
-                    .fill()
+                shape.fill()
             }
             
             
