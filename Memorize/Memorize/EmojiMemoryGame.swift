@@ -22,10 +22,6 @@ class EmojiMemoryGame: ObservableObject{
         model.cards
     }
     
-    // MARK: - Large letters
-    var large: Bool{
-        model.isLarge
-    }
     
     // MARK: - Intents
     func choose(card: MemoryGame<String>.Card){

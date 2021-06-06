@@ -21,27 +21,42 @@ struct ContentView: View {
             .aspectRatio(0.6, contentMode: .fit)
             .foregroundColor(.orange)
             .padding()
-            .font(viewModel.large ? Font.largeTitle : Font.title)
-        
     }
 }
 
 struct CardView: View {
     var card: MemoryGame<String>.Card
-    var isFaceUp: Bool = false
-    let shape = RoundedRectangle(cornerRadius: 10.0)
+   
+    
     var body: some View{
-        ZStack{
+        GeometryReader(content: { geometry in
+            self.body(for: geometry.size)
+        })
+        
+        
+    }
+    
+    func body(for size: CGSize) -> some View{
+        let shape = RoundedRectangle(cornerRadius:rectCornerRadius)
+        
+        return ZStack{
             if card.isFaceUp{
                 shape.fill(Color.white)
-                shape.stroke(lineWidth: 3.0)
+                shape.stroke(lineWidth: edgeLineWidth)
                 Text(card.content)
             }else{
                 shape.fill()
             }
-            
-            
-        }
+        }.font(Font.system(size: fontSize(for: size)))
+    }
+    
+    //MARK: - Drawing constants
+    let rectCornerRadius: CGFloat = 10.0
+    let edgeLineWidth: CGFloat = 3
+    let fontScaleFactor: CGFloat = 0.75
+    
+    func fontSize(for size: CGSize) -> CGFloat{
+        min(size.width,size.height) * fontScaleFactor
     }
 }
 

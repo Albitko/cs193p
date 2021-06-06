@@ -9,7 +9,6 @@ import Foundation
 
 struct MemoryGame <CardContent>{
     var cards: Array<Card>
-    var isLarge: Bool = false
     
     mutating func choose(card: Card){
         let chosenIndex: Int = self.getIndex(of: card)
@@ -28,10 +27,6 @@ struct MemoryGame <CardContent>{
     
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent){
         cards = Array<Card>()
-        
-        if numberOfPairsOfCards == 5{
-            isLarge = true
-        }
         
         for pairIndex in 0..<numberOfPairsOfCards{
             cards.append(Card(
