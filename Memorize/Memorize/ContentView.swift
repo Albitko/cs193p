@@ -15,6 +15,7 @@ struct ContentView: View {
                     CardView(card: card).onTapGesture{
                         viewModel.choose(card: card)
                     }
+                    .padding(5)
             }
             //.aspectRatio(0.6, contentMode: .fit)
             .foregroundColor(.orange)
@@ -43,7 +44,9 @@ struct CardView: View {
                 shape.stroke(lineWidth: edgeLineWidth)
                 Text(card.content)
             }else{
-                shape.fill()
+                if !card.isMatched{
+                    shape.fill()
+                }
             }
         }.font(Font.system(size: fontSize(for: size)))
     }
