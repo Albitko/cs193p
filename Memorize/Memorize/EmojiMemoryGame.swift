@@ -10,9 +10,9 @@ import SwiftUI
 
 class EmojiMemoryGame: ObservableObject{
     
-    static let emojiTheme = MemoryGame.Theme(themeName: "First",actualContent: ["🤩","🥳","🥸","😇","😛"], cardCount: 4, suitableColour: Color.blue)
+    static let emojiTheme = MemoryGame.Theme(themeName: "First",actualContent: ["🤩","🥳","🥸","😇","😛"], cardCount: 4, suitableColour: Color.orange)
     
-    static let thingsTheme = MemoryGame.Theme(themeName: "Things",actualContent: ["🩴","👕","🪖","💼","👛","🦺"], cardCount: 6, suitableColour: Color.orange)
+    static let thingsTheme = MemoryGame.Theme(themeName: "Things",actualContent: ["🩴","👕","🪖","💼","👛","🦺"], cardCount: 6, suitableColour: Color.blue)
     
     static let themesStorage: [MemoryGame<String>.Theme] = [emojiTheme, thingsTheme]
     
