@@ -6,9 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct MemoryGame <CardContent> where CardContent: Equatable{
     var cards: Array<Card>
+    var themes: [Theme]
+    var theme: Theme
+    
     
     var indexOftheOneAndTheOnlyFaceUpCard: Int?{
         get{ cards.indices.filter { cards[$0].isFaceUp }.only }
@@ -35,7 +39,9 @@ struct MemoryGame <CardContent> where CardContent: Equatable{
 }
     
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent){
+        
         cards = Array<Card>()
+        themes = Array<Theme>()
         
         for pairIndex in 0..<numberOfPairsOfCards{
             cards.append(Card(
@@ -54,5 +60,12 @@ struct MemoryGame <CardContent> where CardContent: Equatable{
         var isMatched: Bool = false
         var content: CardContent
         var id: Int
+    }
+    
+    struct Theme {
+        var themeName: String
+        var actualContent: [CardContent]
+        var cardCount: Int
+        var suitableColour: Color
     }
 }
