@@ -38,21 +38,17 @@ struct MemoryGame <CardContent> where CardContent: Equatable{
         }
 }
     
-    init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent){
+    init(themes themesStored: [Theme], theme currentTheme: Theme){
         
         cards = Array<Card>()
-        themes = Array<Theme>()
+        themes = themesStored
+        theme = currentTheme
         
-        for pairIndex in 0..<numberOfPairsOfCards{
-            cards.append(Card(
-                            content: cardContentFactory(
-                                Int.random(in: 0..<numberOfPairsOfCards - 1)),
-                            id: pairIndex*2))
-            cards.append(Card(
-                            content: cardContentFactory(
-                                Int.random(in: 0..<numberOfPairsOfCards - 1)),
-                         id: pairIndex*2+1))
+        for pairIndex in 0..<theme.cardCount{
+            cards.append(Card(content: theme.actualContent[Int.random(in: 0..<theme.cardCount - 1)], id: pairIndex*2))
+            cards.append(Card(content: theme.actualContent[Int.random(in: 0..<theme.cardCount - 1)], id: pairIndex*2+1))
         }
+        
     }
     
     struct Card: Identifiable{

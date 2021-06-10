@@ -14,14 +14,13 @@ class EmojiMemoryGame: ObservableObject{
     
     static let thingsTheme = MemoryGame.Theme(themeName: "Things",actualContent: ["🩴","👕","🪖","💼","👛","🦺"], cardCount: 6, suitableColour: Color.orange)
     
-    let themesStorage: [MemoryGame<String>.Theme] = [emojiTheme, thingsTheme]
+    static let themesStorage: [MemoryGame<String>.Theme] = [emojiTheme, thingsTheme]
     
     @Published private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
+    
+    
     static func createMemoryGame() -> MemoryGame<String>{
-        let emojis: Array<String> = ["🤩","🥳","🥸","😇","😛"]
-        return MemoryGame<String>(numberOfPairsOfCards: Int.random(in: 2..<6)){pairIndex in
-            return emojis[pairIndex]
-        }
+        return MemoryGame<String>(themes: themesStorage, theme: themesStorage[1])
     }
         
     // MARK: - Acces to the Model
