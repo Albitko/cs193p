@@ -16,7 +16,9 @@ struct ContentView: View {
             HStack {
                 Text("Theme: \(viewModel.currentTheme.themeName)")
                     .foregroundColor(viewModel.currentTheme.suitableColour)
-                Text("SCORE: ")
+                    .multilineTextAlignment(.leading)
+                    .padding(.trailing)
+                Text("SCORE: \(viewModel.score)")
             }.padding()
             Grid(viewModel.cards){card in
                         CardView(card: card).onTapGesture{
@@ -27,7 +29,9 @@ struct ContentView: View {
                 //.aspectRatio(0.6, contentMode: .fit)
                 .foregroundColor(viewModel.currentTheme.suitableColour)
                 .padding()
-            Button("New Game"){}.padding()
+            Button("New Game"){
+                viewModel.newGame()
+            }.padding()
         }
     }
 }

@@ -12,6 +12,7 @@ struct MemoryGame <CardContent> where CardContent: Equatable{
     var cards: Array<Card>
     var themes: [Theme]
     var theme: Theme
+    var score: Int = 0
     
     
     var indexOftheOneAndTheOnlyFaceUpCard: Int?{
@@ -30,6 +31,9 @@ struct MemoryGame <CardContent> where CardContent: Equatable{
                 if cards[chosenIndex].content == cards[potentialMatchIndex].content{
                     cards[chosenIndex].isMatched = true
                     cards[potentialMatchIndex].isMatched = true
+                    score += 2
+                }else{
+                    score -= 1
                 }
                 self.cards[chosenIndex].isFaceUp = true
             }else{
