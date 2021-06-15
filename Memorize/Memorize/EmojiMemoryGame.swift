@@ -19,7 +19,7 @@ class EmojiMemoryGame: ObservableObject{
     @Published private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame(themesNumber: 1)
     
     
-    static func createMemoryGame(themesNumber: Int) -> MemoryGame<String>{
+    private static func createMemoryGame(themesNumber: Int) -> MemoryGame<String>{
         return MemoryGame<String>(themes: themesStorage, theme: themesStorage[themesNumber])
     }
         

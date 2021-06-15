@@ -9,13 +9,13 @@ import Foundation
 import SwiftUI
 
 struct MemoryGame <CardContent> where CardContent: Equatable{
-    var cards: Array<Card>
+    private(set) var cards: Array<Card>
     var themes: [Theme]
     var theme: Theme
     var score: Int = 0
     
     
-    var indexOftheOneAndTheOnlyFaceUpCard: Int?{
+    private var indexOftheOneAndTheOnlyFaceUpCard: Int?{
         get{ cards.indices.filter { cards[$0].isFaceUp }.only }
         set{
             for index in cards.indices{
