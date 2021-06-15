@@ -54,7 +54,11 @@ struct CardView: View {
         return ZStack{
             if card.isFaceUp{
                 shape.fill(Color.white)
+                Pie(startAngle: Angle.degrees(90), endAngle: Angle.degrees(290), clockWise: false)
+                    .padding(5)
+                    .opacity(0.4)
                 shape.stroke(lineWidth: edgeLineWidth)
+                
                 Text(card.content)
             }else{
                 if !card.isMatched{
@@ -67,7 +71,7 @@ struct CardView: View {
     //MARK: - Drawing constants
     private let rectCornerRadius: CGFloat = 10.0
     private let edgeLineWidth: CGFloat = 3
-    private let fontScaleFactor: CGFloat = 0.75
+    private let fontScaleFactor: CGFloat = 0.7
     
     private func fontSize(for size: CGSize) -> CGFloat{
         min(size.width,size.height) * fontScaleFactor
@@ -75,6 +79,7 @@ struct CardView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
         ContentView(viewModel: EmojiMemoryGame())
     }
