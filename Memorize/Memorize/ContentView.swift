@@ -54,7 +54,7 @@ struct CardView: View {
         return ZStack{
             if card.isFaceUp{
                 shape.fill(Color.white)
-                Pie(startAngle: Angle.degrees(90), endAngle: Angle.degrees(290), clockWise: false)
+                Pie(startAngle: Angle.degrees(0-90), endAngle: Angle.degrees(110-90))
                     .padding(5)
                     .opacity(0.4)
                 shape.stroke(lineWidth: edgeLineWidth)
