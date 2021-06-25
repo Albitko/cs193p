@@ -8,7 +8,18 @@
 import SwiftUI
 
 struct Cardify: ViewModifier {
-    var isFaceUp: Bool
+    
+    var rotation: Double
+    
+    init (isFaceUp:Bool){
+        rotation = isFaceUp ? 0 : 180;
+    }
+    
+    var isFaceUp: Bool {
+        rotation < 90
+    }
+    
+
     
     private let rectCornerRadius: CGFloat = 10.0
     private let edgeLineWidth: CGFloat = 3
@@ -25,6 +36,9 @@ struct Cardify: ViewModifier {
                 shape.fill()
             }
         }
+        .rotation3DEffect(
+            Angle.degrees(rotation),
+            axis: (x: 0.0, y: 1.0, z: 0.0)
     }
 }
 

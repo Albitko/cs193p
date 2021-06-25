@@ -52,6 +52,7 @@ struct MemoryGame <CardContent> where CardContent: Equatable{
             cards.append(Card(content: theme.actualContent[Int.random(in: 0..<theme.cardCount - 1)], id: pairIndex*2))
             cards.append(Card(content: theme.actualContent[Int.random(in: 0..<theme.cardCount - 1)], id: pairIndex*2+1))
         }
+        cards.shuffle()
         
     }
     

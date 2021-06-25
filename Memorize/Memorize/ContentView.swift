@@ -22,7 +22,9 @@ struct ContentView: View {
             }.padding()
             Grid(viewModel.cards){card in
                         CardView(card: card).onTapGesture{
-                            viewModel.choose(card: card)
+                            withAnimation(.linear(duration: 0.3)){
+                                viewModel.choose(card: card)
+                            }
                         }
                         .padding(5)
                 }
@@ -30,7 +32,9 @@ struct ContentView: View {
                 .foregroundColor(viewModel.currentTheme.suitableColour)
                 .padding()
             Button("New Game"){
-                viewModel.newGame()
+                withAnimation(.easeInOut){
+                    viewModel.newGame()
+                }
             }.padding()
         }
     }
@@ -57,8 +61,13 @@ struct CardView: View {
                     .opacity(0.4)
                 Text(card.content)
                     .font(Font.system(size: fontSize(for: size)))
+                    .rotationEffect(Angle.degrees(card.isMatched ? 360 : 0))
+                    .animation(card.isMatched ? Animation.linear(duration: 1).repeatForever(autoreverses: false) : .default)
             }
             .cardify(isFaceUp: card.isFaceUp)
+            .transition(AnyTransition.scale)
+            
+            )
         }
     }
     
