@@ -22,7 +22,7 @@ struct ContentView: View {
             }.padding()
             Grid(viewModel.cards){card in
                         CardView(card: card).onTapGesture{
-                            withAnimation(.linear(duration: 0.3)){
+                            withAnimation(.linear(duration: 0.75)){
                                 viewModel.choose(card: card)
                             }
                         }
@@ -62,12 +62,11 @@ struct CardView: View {
                 Text(card.content)
                     .font(Font.system(size: fontSize(for: size)))
                     .rotationEffect(Angle.degrees(card.isMatched ? 360 : 0))
-                    .animation(card.isMatched ? Animation.linear(duration: 1).repeatForever(autoreverses: false) : .default)
+                    .animation(card.isMatched ? Animation.linear.repeatForever(autoreverses: false) : .default)
             }
             .cardify(isFaceUp: card.isFaceUp)
             .transition(AnyTransition.scale)
             
-            )
         }
     }
     
