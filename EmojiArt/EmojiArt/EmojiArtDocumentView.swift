@@ -11,12 +11,21 @@ struct EmojiArtDocumentView: View {
     @ObservedObject var document: EmojiArtDocument
     
     var body: some View {
-        HStack{
-            ForEach(EmojiArtDocument.pallete.map {String($0)}, id: \.self) { emoji in
-                Text(emoji)
-            }
+        VStack {
+            ScrollView(.horizontal){
+                HStack{
+                    ForEach(EmojiArtDocument.pallete.map {String($0)}, id: \.self) { emoji in
+                        Text(emoji)
+                            .font(Font.system(size: defaultFontSize ))
+                    }
+                }
+            }.padding(.horizontal)
+            Rectangle().foregroundColor(.yellow)
+                .edgesIgnoringSafeArea([.horizontal, .bottom])
         }
     }
+    
+    private let defaultFontSize: CGFloat = 40
 }
 
 struct ContentView_Previews: PreviewProvider {
