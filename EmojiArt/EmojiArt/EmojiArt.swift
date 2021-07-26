@@ -9,7 +9,7 @@ import Foundation
 
 struct EmojiArt {
     var backgroundURL: URL?
-    private(set) var emojis = [Emoji]()
+    var emojis = [Emoji]()
     
     struct Emoji: Identifiable{
         let text: String
