@@ -19,8 +19,8 @@ struct EmojiArtDocumentView: View {
                             .font(Font.system(size: defaultFontSize ))
                     }
                 }
-            }.padding(.horizontal)
-            Rectangle().foregroundColor(.yellow)
+            }.padding(.horizontal) 
+            Color.white.overlay(Image(uiImage: self.document.backgroundImage))
                 .edgesIgnoringSafeArea([.horizontal, .bottom])
                 .onDrop(of: ["public.image"], isTargeted: nil){ providers, location in
                     return self.drop(providers: providers)
