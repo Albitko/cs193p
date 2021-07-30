@@ -23,7 +23,7 @@ class EmojiArtDocument: ObservableObject{
     private static let untiteled = "EmojiArtDocument.Untiteled "
     
     init(){
-        emojiArt = EmojiArt(json: UserDefaults.standard.data(forKey: EmojiArtDocument.untiteled)) ?? EmojiArt()
+        emojiArt = EmojiArt(json: UserDefaults.standard.data(forKey: EmojiArtDocument.untiteled))!
         fetchBackgroundImageData()
     }
     
