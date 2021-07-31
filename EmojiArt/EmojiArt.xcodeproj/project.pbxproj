@@ -14,6 +14,7 @@
 		FA32AED62699DDD50065B977 /* EmojiArtDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32AED52699DDD50065B977 /* EmojiArtDocument.swift */; };
 		FA32AED826A48C900065B977 /* EmojiArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32AED726A48C900065B977 /* EmojiArt.swift */; };
 		FA32AEDA26A494250065B977 /* EmojiArtExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32AED926A494250065B977 /* EmojiArtExtensions.swift */; };
+		FA32AEDC26B525CA0065B977 /* OptionalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32AEDB26B525CA0065B977 /* OptionalImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		FA32AED52699DDD50065B977 /* EmojiArtDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtDocument.swift; sourceTree = "<group>"; };
 		FA32AED726A48C900065B977 /* EmojiArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArt.swift; sourceTree = "<group>"; };
 		FA32AED926A494250065B977 /* EmojiArtExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiArtExtensions.swift; sourceTree = "<group>"; };
+		FA32AEDB26B525CA0065B977 /* OptionalImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				FA32AEC62699DD5D0065B977 /* EmojiArtApp.swift */,
 				FA32AEC82699DD5D0065B977 /* EmojiArtDocumentView.swift */,
+				FA32AEDB26B525CA0065B977 /* OptionalImage.swift */,
 				FA32AED726A48C900065B977 /* EmojiArt.swift */,
 				FA32AED926A494250065B977 /* EmojiArtExtensions.swift */,
 				FA32AED52699DDD50065B977 /* EmojiArtDocument.swift */,
@@ -150,6 +153,7 @@
 				FA32AED826A48C900065B977 /* EmojiArt.swift in Sources */,
 				FA32AEDA26A494250065B977 /* EmojiArtExtensions.swift in Sources */,
 				FA32AEC92699DD5D0065B977 /* EmojiArtDocumentView.swift in Sources */,
+				FA32AEDC26B525CA0065B977 /* OptionalImage.swift in Sources */,
 				FA32AED62699DDD50065B977 /* EmojiArtDocument.swift in Sources */,
 				FA32AEC72699DD5D0065B977 /* EmojiArtApp.swift in Sources */,
 			);
