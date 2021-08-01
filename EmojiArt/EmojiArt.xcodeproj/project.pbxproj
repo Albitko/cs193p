@@ -15,6 +15,7 @@
 		FA32AED826A48C900065B977 /* EmojiArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32AED726A48C900065B977 /* EmojiArt.swift */; };
 		FA32AEDA26A494250065B977 /* EmojiArtExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32AED926A494250065B977 /* EmojiArtExtensions.swift */; };
 		FA32AEDC26B525CA0065B977 /* OptionalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32AEDB26B525CA0065B977 /* OptionalImage.swift */; };
+		FA32AEDE26B697C70065B977 /* AnimatableSystemFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32AEDD26B697C70065B977 /* AnimatableSystemFontModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FA32AED726A48C900065B977 /* EmojiArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArt.swift; sourceTree = "<group>"; };
 		FA32AED926A494250065B977 /* EmojiArtExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiArtExtensions.swift; sourceTree = "<group>"; };
 		FA32AEDB26B525CA0065B977 /* OptionalImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalImage.swift; sourceTree = "<group>"; };
+		FA32AEDD26B697C70065B977 /* AnimatableSystemFontModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableSystemFontModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				FA32AEC62699DD5D0065B977 /* EmojiArtApp.swift */,
+				FA32AEDD26B697C70065B977 /* AnimatableSystemFontModifier.swift */,
 				FA32AEC82699DD5D0065B977 /* EmojiArtDocumentView.swift */,
 				FA32AEDB26B525CA0065B977 /* OptionalImage.swift */,
 				FA32AED726A48C900065B977 /* EmojiArt.swift */,
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA32AEDE26B697C70065B977 /* AnimatableSystemFontModifier.swift in Sources */,
 				FA32AED826A48C900065B977 /* EmojiArt.swift in Sources */,
 				FA32AEDA26A494250065B977 /* EmojiArtExtensions.swift in Sources */,
 				FA32AEC92699DD5D0065B977 /* EmojiArtDocumentView.swift in Sources */,
