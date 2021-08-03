@@ -28,11 +28,14 @@ struct EmojiArtDocumentView: View {
                             .scaleEffect(self.zoomScale)
                     )
                     .gesture(self.doubleTapToZoom(in: geometry.size))
-                    ForEach(self.document.emojis){ emoji in
-                        Text(emoji.text)
-                            .font(animatableWithSize: emoji.fontSize * zoomScale)
-                            .position(self.position(for: emoji, in: geometry.size))
+                    if !self.isLoading{
+                        ForEach(self.document.emojis){ emoji in
+                            Text(emoji.text)
+                                .font(animatableWithSize: emoji.fontSize * zoomScale)
+                                .position(self.position(for: emoji, in: geometry.size))
+                        }
                     }
+                    
                     
                 }
                 .clipped()
@@ -52,6 +55,11 @@ struct EmojiArtDocumentView: View {
     
     @State private var steadyStatezoomScale: CGFloat = 1.0
     @GestureState private var gestureZoomScale: CGFloat = 1.0
+    
+    
+    var isLoading: Bool{
+        document.setBackgroundURL != nil && document.backgroundImage == nil
+    }
     
     private var zoomScale: CGFloat{
          steadyStatezoomScale * gestureZoomScale
