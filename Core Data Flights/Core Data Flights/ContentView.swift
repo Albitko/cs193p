@@ -11,9 +11,27 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
-
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "location", ascending: true)])
+    private var airports: FetchedResults<Airport>
 
     var body: some View {
-        Text("TEST")
+        NavigationView{
+            List{
+                ForEach(airports){ airport in
+                    Text(airport.icao ?? "Untitled")
+                }
+            }
+            .navigationTitle("Test Core Data")
+            .navigationBarItems(leading: Button("Add"){
+                addAirport()
+            })
+        }
+    }
+    
+    
+    private func addAirport(){
+        let newAirport = Airport(context: viewContext)
+        newAirport.icao = "Test \(Date())"
+        try? viewContext.save()
     }
 }
