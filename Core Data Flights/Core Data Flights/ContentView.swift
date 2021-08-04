@@ -28,10 +28,16 @@ struct ContentView: View {
         }
     }
     
-    
     private func addAirport(){
         let newAirport = Airport(context: viewContext)
         newAirport.icao = "Test \(Date())"
+        newAirport.location = "123"
         try? viewContext.save()
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View{
+        ContentView()
     }
 }
