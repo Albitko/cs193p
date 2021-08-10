@@ -19,7 +19,9 @@ struct ContentView: View {
             List{
                 ForEach(airports){ airport in
                     Text(airport.icao ?? "Untitled")
+                        
                 }
+                .onDelete(perform: deleteAirport)
             }
             .navigationTitle("Test Core Data")
             .navigationBarItems(leading: Button("Add"){
@@ -33,6 +35,13 @@ struct ContentView: View {
         newAirport.icao = "Test \(Date())"
         newAirport.location = "123"
         try? viewContext.save()
+    }
+    
+    private func deleteAirport(offsets: IndexSet){
+        withAnimation{
+            offsets.map{airports[$0]}.forEach(viewContext.delete(_:))
+            try? viewContext.save()
+        }
     }
 }
 
